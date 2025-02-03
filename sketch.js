@@ -17,8 +17,8 @@ tunes2 = loadSound('ground control.mp3');
 
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);  
-  for (var i = 0; i < 2000; i++) {
+  createCanvas(1920, 1080);  
+  for (var i = 0; i < 4000; i++) {
     stars[i] = new Star();
   }
     tunes2.play(); //soundtrack
@@ -35,7 +35,7 @@ image(nightgif, 0, 0,width,height);
     stars[i].update();
     stars[i].show();
   }
-        image(ship,mouseX-500,mouseY-150,750,300);
+        image(ship,mouseX-1300,mouseY-700,750,300);
   // Draw and update burst circles
   for (let i = burstCircles.length - 1; i >= 0; i--) {
     let burstCircle = burstCircles[i];
@@ -45,7 +45,7 @@ image(nightgif, 0, 0,width,height);
     burstCircle.y += burstCircle.speedY;
 
     // Decrease size over time
-    burstCircle.size *= 0.95;
+    burstCircle.size *= 1;
 
     // Remove burst circle if it gets too small
     if (burstCircle.size < 1) {
@@ -72,14 +72,14 @@ function mousePressed() {
     rev.play();
     rev. setVolume (5)
 
-  let burstCount = 50;
+  let burstCount = 100;
   for (let i = 0; i < burstCount; i++) {
-    let x = mouseX;
-    let y = mouseY;
+    let x = mouseX-random(800,1050);
+    let y = mouseY-550;
     let size = random(10, 20);
     let speedX = random(-5, 5);
     let speedY = random(-5, 5);
-    let color = (random(0,255), random(0,255), random(0,255), 255);
+    let color = 'orange';
     burstCircles.push({ x, y, size, speedX, speedY, color });
   }  
   
@@ -91,7 +91,3 @@ function mouseMoved(){
   }  
 }
 
-
-
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);}
